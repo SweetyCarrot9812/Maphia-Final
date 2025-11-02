@@ -261,7 +261,7 @@ export const api = {
 
   // Authentication endpoints
   auth: {
-    login: async (email: string, password: string): Promise<{
+    login: async (username: string, password: string): Promise<{
       access: string;
       refresh: string;
       user: {
@@ -270,7 +270,7 @@ export const api = {
         role: string;
       };
     }> => {
-      const response = await apiClient.post('/api/auth/login/', { email, password });
+      const response = await apiClient.post('/api/auth/login/', { username, password });
       return response.data;
     },
 

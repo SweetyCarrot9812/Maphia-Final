@@ -6,7 +6,7 @@ import api from '@/lib/api';
 
 export default function LoginPage() {
   const router = useRouter();
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -17,7 +17,7 @@ export default function LoginPage() {
     setLoading(true);
 
     try {
-      const response = await api.auth.login(email, password);
+      const response = await api.auth.login(username, password);
 
       // Save tokens to localStorage
       localStorage.setItem('access_token', response.access);
@@ -54,19 +54,19 @@ export default function LoginPage() {
 
           <div className="space-y-4">
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                이메일
+              <label htmlFor="username" className="block text-sm font-medium text-gray-700">
+                사용자명
               </label>
               <input
-                id="email"
-                name="email"
-                type="email"
-                autoComplete="email"
+                id="username"
+                name="username"
+                type="text"
+                autoComplete="username"
                 required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                placeholder="admin@test.com"
+                placeholder="admin"
               />
             </div>
 
@@ -99,9 +99,9 @@ export default function LoginPage() {
           <div className="mt-4 p-4 bg-gray-50 rounded text-sm">
             <p className="font-semibold mb-2">테스트 계정:</p>
             <ul className="space-y-1 text-gray-600">
-              <li>• Admin: admin@test.com / admin123</li>
-              <li>• Manager: manager@test.com / manager123</li>
-              <li>• Viewer: viewer@test.com / viewer123</li>
+              <li>• Admin: admin / admin123</li>
+              <li>• Manager: manager / manager123</li>
+              <li>• Viewer: viewer / viewer123</li>
             </ul>
           </div>
         </form>
