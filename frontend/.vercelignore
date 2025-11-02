@@ -1,0 +1,5 @@
+# Test files
+vitest.config.ts
+test/
+*.test.ts
+*.test.tsx
