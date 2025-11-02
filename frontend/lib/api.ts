@@ -259,6 +259,37 @@ export const api = {
     },
   },
 
+  // Authentication endpoints
+  auth: {
+    login: async (email: string, password: string): Promise<{
+      access: string;
+      refresh: string;
+      user: {
+        id: number;
+        email: string;
+        role: string;
+      };
+    }> => {
+      const response = await apiClient.post('/api/auth/login/', { email, password });
+      return response.data;
+    },
+
+    logout: async (): Promise<void> => {
+      const refreshToken = localStorage.getItem('refresh_token');
+      if (refreshToken) {
+        await apiClient.post('/api/auth/logout/', { refresh: refreshToken });
+      }
+      localStorage.removeItem('access_token');
+      localStorage.removeItem('refresh_token');
+      localStorage.removeItem('user');
+    },
+
+    refresh: async (refreshToken: string): Promise<{ access: string }> => {
+      const response = await apiClient.post('/api/auth/refresh/', { refresh: refreshToken });
+      return response.data;
+    },
+  },
+
   // Statistics endpoints
   statistics: {
     overview: async (): Promise<DatasetStatistics> => {
