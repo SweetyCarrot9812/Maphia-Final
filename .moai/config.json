@@ -1,0 +1,35 @@
+{
+  "project": {
+    "name": "University Data Visualization Dashboard",
+    "mode": "personal",
+    "locale": "ko",
+    "language": "fullstack",
+    "language_detection": {
+      "detected_language": "fullstack",
+      "detection_method": "manual",
+      "confidence": 1.0,
+      "markers": ["Python", "TypeScript", "Django", "Next.js"],
+      "confirmed_by": "Sam"
+    },
+    "optimized": true
+  },
+  "language": {
+    "conversation_language": "ko",
+    "conversation_language_name": "한국어"
+  },
+  "user": {
+    "nickname": "Sam",
+    "selected_at": "2025-11-03T00:00:00+09:00"
+  },
+  "tech_stack": {
+    "backend": "Django 5.0.7 + DRF",
+    "frontend": "Next.js 14 + TypeScript",
+    "database": "PostgreSQL",
+    "deployment": "Railway + Vercel"
+  },
+  "initialization": {
+    "completed_at": "2025-11-03T00:00:00+09:00",
+    "alfred_version": "0-project",
+    "documents_created": ["product.md", "structure.md", "tech.md"]
+  }
+}
